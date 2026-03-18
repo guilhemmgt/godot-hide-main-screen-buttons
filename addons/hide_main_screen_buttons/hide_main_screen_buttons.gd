@@ -21,13 +21,12 @@ func _enter_tree() -> void:
 	for name in DEFAULT_BUTTONS_NAMES:
 		var path = SETTING_PATH + name
 		if not ProjectSettings.has_setting(path):
-			ProjectSettings.set_setting(path, false)
-			ProjectSettings.set_initial_value(path, false)
+			ProjectSettings.set_setting(path, true)
+			ProjectSettings.set_initial_value(path, true)
 			ProjectSettings.add_property_info(
 				{
 					"name": path,
 					"type": TYPE_BOOL,
-					"hint_string": "Hidden",
 				},
 			)
 
@@ -69,7 +68,7 @@ func _update_hidden_buttons() -> void:
 	base_control.add_child(_hidden_container)
 	_hidden_container.position = Vector2(-10000, -10000)
 	for button in main_screen_buttons:
-		if button is Button and ProjectSettings.get_setting(SETTING_PATH + button.text):
+		if button is Button and not ProjectSettings.get_setting(SETTING_PATH + button.text):
 			_buttons_container.remove_child(button)
 			_hidden_container.add_child(button)
 
