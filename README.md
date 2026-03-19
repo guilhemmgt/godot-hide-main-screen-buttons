@@ -1,5 +1,7 @@
 # Hide Main Screen Buttons
 
+You can also find this on the [Godot Asset Library](https://godotengine.org/asset-library/asset/4924).
+
 Lets you hide the main screen buttons you do not want to see (2D, 3D, Script, Game, AssetLib) without disabling features.
 
 You can control which buttons to hide in the Project Settings.
